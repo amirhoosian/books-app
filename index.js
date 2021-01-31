@@ -60,7 +60,7 @@ app.put("/api/books/:id", (req, res) => {
   res.send(book);
 });
 
-app.delete("/api/books:id", (req, res) => {
+app.delete("/api/books/:id", (req, res) => {
   const book = books.find((a) => a.id === parseInt(req.params.id));
   if (!book)
     res
