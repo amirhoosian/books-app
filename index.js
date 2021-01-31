@@ -7,9 +7,9 @@ app.get("/", (req, res) => {
 });
 
 const books = [
-  { title: "kale gaze", id: 1 },
-  { title: "hsan kjal madrese mere", id: 2 },
-  { title: "fill ha parvaz mekonan", id: 3 },
+  { title: "kale gaze", author: "hasane", id: 1 },
+  { title: "hsan kjal madrese mere", author: "jafar", id: 2 },
+  { title: "fill ha parvaz mekonan", author: "dane", id: 3 },
 ];
 
 app.get("/api/books", (req, res) => res.send(books));
@@ -34,6 +34,7 @@ app.post("/api/books", (req, res) => {
   const book = {
     id: books.length + 1,
     title: req.body.title,
+    author: req.body.author,
   };
   books.push(book);
   res.send(book);
@@ -55,6 +56,7 @@ app.put("/api/books:id", (req, res) => {
   }
 
   book.title = req.body.title;
+  book.author = req.body.author;
   res.send(book);
 });
 
