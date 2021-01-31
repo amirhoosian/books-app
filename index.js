@@ -14,7 +14,7 @@ const books = [
 
 app.get("/api/books", (req, res) => res.send(books));
 
-app.get("/api/books:id", (req, res) => {
+app.get("/api/books/:id", (req, res) => {
   const book = books.find((a) => a.id === parseInt(req.params.id));
   if (!book)
     res
@@ -40,7 +40,7 @@ app.post("/api/books", (req, res) => {
   res.send(book);
 });
 
-app.put("/api/books:id", (req, res) => {
+app.put("/api/books/:id", (req, res) => {
   const book = books.find((a) => a.id === parseInt(req.params.id));
   if (!book)
     res
